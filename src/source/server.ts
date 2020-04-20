@@ -1,11 +1,13 @@
 import { createServer } from 'http';
 import SocketIo from 'socket.io';
 import { entityProducer } from './producer';
-const config = require('../../config/config.json');
+
 
 export const startServer = (): Promise<void> => {
    return new Promise(resolve =>
    {
+      const { sourcePort } = require('../../config/config.json');
+
       const server = createServer();
       const io = SocketIo(server);
 
@@ -13,7 +15,7 @@ export const startServer = (): Promise<void> => {
          entity => io.sockets.emit('next', entity),
       );
 
-      server.listen(config.sourcePort, () => {
+      server.listen(sourcePort, () => {
          console.info('entity source works...');
          resolve();
       });

@@ -1,14 +1,14 @@
 import type { IEntity } from '../custom_types';
 import SocketIoClient from 'socket.io-client';
 import { Store } from './store';
-const config = require('../../config/config.json');
 
 
 export const startListener = (): Promise<void> =>
 {
    return new Promise(resolve =>
-      {
-      const socket = SocketIoClient('http://localhost:' + config.sourcePort);
+   {
+      const { sourcePort } = require('../../config/config.json');
+      const socket = SocketIoClient('http://localhost:' + sourcePort);
 
       socket.on('connect', resolve);
 
