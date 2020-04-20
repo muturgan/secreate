@@ -10,4 +10,6 @@ entityProducer.subscribe(
    entity => io.sockets.emit('next', entity),
 );
 
-server.listen(config.sourcePort);
+server.listen(config.sourcePort, () => {
+   console.info('entity source works...');
+});
