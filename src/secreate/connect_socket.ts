@@ -1,4 +1,5 @@
 import type { App } from '../custom_types';
+import { Store } from './store';
 import SocketIo from 'socket.io';
 
 export const connectClientSocket = (app: App) =>
@@ -8,7 +9,7 @@ export const connectClientSocket = (app: App) =>
    const io = SocketIo(app.server);
 
    setInterval(
-      () => io.sockets.emit('snapshot', 'snapshot'),
+      () => io.sockets.emit('snapshot', Store.getStore()),
       clientRefreshInterval,
    ).unref();
 

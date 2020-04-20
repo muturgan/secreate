@@ -2,5 +2,5 @@
   "eventesPerSecond": 10,
   "sourcePort": 4545,
   "secreatePort": 5454,
-  "clientRefreshInterval": 2000
+  "clientRefreshInterval": 5000
 }
