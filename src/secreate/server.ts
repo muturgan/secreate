@@ -8,7 +8,7 @@ const app = Fastify();
 registerRoutes(app);
 
 
-const bootstrap = async () =>
+export const startServer = async (): Promise<void> =>
 {
    try {
       await startListener();
@@ -20,4 +20,3 @@ const bootstrap = async () =>
       process.exit(1);
    }
 };
-bootstrap();

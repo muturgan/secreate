@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "source": "ts-node ./src/source/server.ts",
-    "secreate": "ts-node ./src/secreate/server.ts"
+    "dev": "ts-node ./src/index.ts"
   },
   "repository": {
     "type": "git",
