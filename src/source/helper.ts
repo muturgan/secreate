@@ -24,7 +24,7 @@ export const generateEntity = (): IEntity =>
    }
    const entity: IEntity = {
       name: generateEntityName(),
-      value: values as TValue,
+      values: values as TValue,
    };
    return entity;
 };

@@ -4,7 +4,7 @@ export type TValue = [number, number, number, number, number, number, number, nu
 
 export interface IEntity {
    name: TEntityName;
-   value: TValue;
+   values: TValue;
 }
 
 export interface ISnapshot {

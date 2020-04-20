@@ -36,13 +36,13 @@ export class Store
    {
       return {
          name,
-         value: [...this._snapshot[name]] as TValue,
+         values: [...this._snapshot[name]] as TValue,
       };
    }
 
    public static update(actualEntity: IEntity): void
    {
-      this._snapshot[actualEntity.name] = [...actualEntity.value] as TValue;
+      this._snapshot[actualEntity.name] = [...actualEntity.values] as TValue;
    }
 
 }
