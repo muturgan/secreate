@@ -1,4 +1,4 @@
-import type { IEntity, TEntityName } from '../custom_types';
+import type { IEntity, TEntityName, TValue } from '../custom_types';
 
 const generateRandomInteger = (min: number, max: number): number =>
 {
@@ -18,9 +18,13 @@ const generateEntityValue = (): number =>
 
 export const generateEntity = (): IEntity =>
 {
+   const values: number[] = [];
+   for (let i = 0; i < 20; i++) {
+      values.push(generateEntityValue());
+   }
    const entity: IEntity = {
       name: generateEntityName(),
-      value: generateEntityValue(),
+      value: values as TValue,
    };
    return entity;
 };

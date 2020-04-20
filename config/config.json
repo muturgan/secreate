@@ -1,4 +1,5 @@
 {
   "eventesPerSecond": 10,
-  "sourcePort": 4545
+  "sourcePort": 4545,
+  "secreatePort": 5454
 }
