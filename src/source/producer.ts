@@ -1,11 +1,11 @@
-import type { IEntity } from '../custom_types';
 import { generateEntity } from './helper';
-import { Subject } from 'rxjs';
+import EventEmitter from 'events';
+
 const { eventesPerSecond } = require('../../config/config.json');
 
-export const entityProducer = new Subject<IEntity>();
+export const entityProducer = new EventEmitter();
 
 setInterval(
-   () => entityProducer.next(generateEntity()),
+   () => entityProducer.emit('entity', generateEntity()),
    Math.round(1000 / eventesPerSecond),
 ).unref();

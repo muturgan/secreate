@@ -1,6 +1,7 @@
 import { createServer } from 'http';
 import SocketIo from 'socket.io';
 import { entityProducer } from './producer';
+import type { IEntity } from '../custom_types';
 
 
 export const startServer = (): Promise<void> => {
@@ -11,8 +12,8 @@ export const startServer = (): Promise<void> => {
       const server = createServer();
       const io = SocketIo(server);
 
-      entityProducer.subscribe(
-         entity => io.sockets.emit('next', entity),
+      entityProducer.on('entity',
+         (entity: IEntity) => io.sockets.emit('next', entity),
       );
 
       server.listen(sourcePort, () => {
